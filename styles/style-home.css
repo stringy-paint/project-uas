@@ -1,0 +1,302 @@
+/* =========================================
+   STYLE KHUSUS HOME (SUPPORT DARK MODE)
+   ========================================= */
+
+/* 1. DEFINISI WARNA (VARIABEL) */
+:root {
+  /* Tema Terang (Default) */
+  --bg-body: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-navbar: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --primary-color: #1e3a8a; /* Navy Blue */
+  --primary-hover: #1e40af;
+  --accent-btn-text: #1e3a8a;
+}
+
+/* Tema Gelap (Saat class .dark-mode aktif) */
+body.dark-mode {
+  --bg-body: #111827; /* Hitam agak biru (Dark Slate) */
+  --bg-card: #1f2937; /* Abu-abu gelap untuk kartu */
+  --bg-navbar: #1f2937; /* Navbar gelap */
+  --text-primary: #f9fafb; /* Putih hampir murni */
+  --text-secondary: #9ca3af; /* Abu-abu terang */
+  --border-color: #374151; /* Garis border gelap */
+  --shadow: rgba(0, 0, 0, 0.3);
+  --primary-color: #60a5fa; /* Biru lebih terang agar terbaca di gelap */
+  --primary-hover: #3b82f6;
+  --accent-btn-text: #60a5fa;
+}
+
+/* Reset Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease; /* Transisi halus saat ganti tema */
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--bg-navbar);
+  padding: 15px 0;
+  box-shadow: 0 2px 10px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-logo span {
+  font-family: "Georgia", serif;
+}
+.book-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--primary-color);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--primary-color);
+}
+
+/* Tombol Toggle Tema */
+.btn-theme {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+}
+.btn-theme:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 15px;
+  border-left: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+.user-profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.btn-logout {
+  color: #ef4444 !important;
+}
+
+/* --- Hero Section --- */
+.hero {
+  /* Background image tetap sama, overlay disesuaikan sedikit */
+  background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(17, 24, 39, 0.8)),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  text-align: center;
+  color: white; /* Hero teks tetap putih karena background gelap */
+}
+
+.hero-content h1 {
+  font-family: "Georgia", serif;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.search-bar {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  background: var(--bg-card);
+  padding: 5px;
+  border-radius: 8px;
+}
+.search-bar input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: var(--text-primary);
+}
+.search-bar button {
+  background-color: #1e3a8a; /* Tombol search tetap biru navy */
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* --- Main Content --- */
+.main-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  border-left: 5px solid var(--primary-color);
+  padding-left: 15px;
+}
+
+/* Grid System */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.book-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, background-color 0.3s;
+}
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--shadow);
+}
+
+.book-cover {
+  height: 280px;
+  background-color: var(--border-color);
+  overflow: hidden;
+}
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.book-title {
+  font-family: "Georgia", serif;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+.book-author {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+}
+
+.btn-read {
+  margin-top: auto;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--accent-btn-text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-read:hover {
+  background-color: var(--primary-color);
+  color: var(
+    --bg-card
+  ); /* Warna teks tombol saat hover mengikuti warna kartu */
+}
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  background-color: var(--bg-navbar);
+  border-top: 1px solid var(--border-color);
+  margin-top: 50px;
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  } /* Tombol theme tidak akan muncul di HP jika menu disembunyikan. Nanti bisa dipindah ke mobile menu */
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .book-cover {
+    height: 200px;
+  }
+}
